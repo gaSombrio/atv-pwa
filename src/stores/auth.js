@@ -25,8 +25,16 @@ export const useAuthStore = defineStore('auth', () => {
       Notification.permission === 'granted' // 
     ) {
       navigator.serviceWorker.ready
-        .then((reg) => subscribe(reg))
-        .catch(() => {})
+        .then((reg) => {
+          console.log('[Push] Service Worker pronto:', reg)
+          return subscribe(reg)
+        })
+        .then((result) => {
+          console.log('[Push] Resultado do subscribe:', result)
+        })
+        .catch((error) => {
+          console.error('[Push] Erro no subscribe:', error)
+        })
     }
   }
 
