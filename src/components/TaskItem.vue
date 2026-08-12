@@ -31,82 +31,194 @@ defineEmits(['toggle', 'remove', 'edit'])
 <style scoped>
 .task-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 12px;
-  background-color: white;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: opacity 0.2s;
-  gap: 10px;
+  gap: 12px;
+
+  padding: 14px 16px;
+  margin-bottom: 10px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.task-item:hover {
+  transform: translateY(-1px);
+
+  border-color: #d5dce5;
+
+  box-shadow: var(--shadow-md);
 }
 
 .task-thumbnail {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
+
   object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid #eee;
+
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+
   flex-shrink: 0;
 }
 
 .task-item.done {
-  opacity: 0.6;
+  opacity: 0.62;
+  background: #fafafa;
 }
 
 .task-label {
   display: flex;
   align-items: center;
   gap: 12px;
-  cursor: pointer;
+
+  min-width: 0;
   flex: 1;
+
+  cursor: pointer;
 }
 
-.task-label input[type='checkbox'] {
+.task-label input[type="checkbox"] {
+  appearance: none;
+
   width: 20px;
   height: 20px;
-  accent-color: #4a90d9;
+
+  border: 2px solid #cbd5e1;
+  border-radius: 50%;
+
+  flex-shrink: 0;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.task-label input[type="checkbox"]:hover {
+  border-color: var(--primary);
+}
+
+.task-label input[type="checkbox"]:checked {
+  background: var(--primary);
+  border-color: var(--primary);
+
+  position: relative;
+}
+
+.task-label input[type="checkbox"]:checked::after {
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 9px;
+
+  left: 6px;
+  top: 3px;
+
+  border: solid white;
+  border-width: 0 2px 2px 0;
+
+  transform: rotate(45deg);
 }
 
 .task-title {
-  font-size: 1rem;
+  min-width: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  color: var(--text);
+
+  transition: color 0.2s ease;
 }
 
 .task-item.done .task-title {
+  color: var(--text-muted);
   text-decoration: line-through;
-  color: #999;
-}
-
-.task-remove {
-  background: none;
-  border: none;
-  color: #e74c3c;
-  cursor: pointer;
-  font-size: 0.85rem;
-  padding: 4px 8px;
-}
-
-.task-remove:hover {
-  text-decoration: underline;
 }
 
 .task-actions {
   display: flex;
-  gap: 4px;
   align-items: center;
+  gap: 4px;
+
+  flex-shrink: 0;
+}
+
+.task-edit,
+.task-remove {
+  border: none;
+  background: transparent;
+
+  padding: 6px 8px;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  border-radius: 5px;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .task-edit {
-  background: none;
-  border: none;
-  color: #4a90d9;
-  cursor: pointer;
-  font-size: 0.85rem;
-  padding: 4px 8px;
+  color: var(--primary);
 }
 
 .task-edit:hover {
-  text-decoration: underline;
+  background: var(--primary-light);
+}
+
+.task-remove {
+  color: var(--danger);
+}
+
+.task-remove:hover {
+  background: var(--danger-light);
+}
+
+@media (max-width: 560px) {
+  .task-item {
+    padding: 12px;
+    gap: 9px;
+  }
+
+  .task-thumbnail {
+    width: 42px;
+    height: 42px;
+  }
+
+  .task-label {
+    gap: 8px;
+  }
+
+  .task-actions {
+    flex-direction: column;
+  }
+
+  .task-edit,
+  .task-remove {
+    padding: 4px 6px;
+    font-size: 0.75rem;
+  }
 }
 </style>

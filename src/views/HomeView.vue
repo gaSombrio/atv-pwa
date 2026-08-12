@@ -88,32 +88,58 @@ function handleRemove(id) {
 
 <style scoped>
 .section-title {
-  font-size: 1rem;
-  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 26px;
   margin-bottom: 12px;
-  margin-top: 20px;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  color: var(--text-secondary);
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .empty-message {
+  padding: 45px 20px;
+
   text-align: center;
-  color: #999;
-  margin-top: 40px;
-  font-size: 0.95rem;
+
+  color: var(--text-muted);
+
+  font-size: 0.9rem;
+
+  background: rgba(255, 255, 255, 0.6);
+
+  border: 1px dashed #d5dce5;
+  border-radius: var(--radius-lg);
 }
 
 .error-message {
-  color: #c0392b;
-  background-color: #fdecea;
-  border: 1px solid #e74c3c;
-  border-radius: 6px;
-  padding: 10px 14px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
+  margin-bottom: 14px;
+  padding: 11px 14px;
+
+  color: #b42318;
+
+  background: var(--danger-light);
+
+  border: 1px solid #f5c2c0;
+  border-radius: var(--radius-md);
+
+  font-size: 0.85rem;
 }
 
 .loading-message {
-  color: #666;
+  padding: 20px;
+
+  text-align: center;
+
+  color: var(--text-secondary);
+
   font-size: 0.9rem;
-  padding: 8px 0;
 }
 </style>
