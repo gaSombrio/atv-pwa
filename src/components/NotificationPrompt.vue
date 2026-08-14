@@ -2,7 +2,7 @@
   <Transition name="slide-up">
     <div v-if="visible" class="notification-prompt">
       <div class="prompt-content">
-        <span class="prompt-icon">🔔</span>
+        <span class="prompt-icon">!</span>
         <div class="prompt-text">
           <strong>Ativar notificações?</strong>
           <p>Seja avisado quando tarefas forem criadas ou atualizadas em outros dispositivos.</p>
@@ -52,34 +52,131 @@ function dismiss() {
 <style scoped>
 .notification-prompt {
   position: fixed;
-  bottom: 1.5rem;
+
   left: 50%;
+  bottom: 24px;
+
   transform: translateX(-50%);
-  width: min(480px, calc(100vw - 2rem));
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  padding: 1rem 1.25rem;
+
+  width: min(480px, calc(100vw - 32px));
+
+  padding: 18px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
+
   z-index: 1000;
+
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 16px;
 }
-.prompt-content { display: flex; align-items: flex-start; gap: 0.75rem; }
-.prompt-icon { font-size: 1.5rem; flex-shrink: 0; }
-.prompt-text strong { display: block; font-size: 0.95rem; color: #1a202c; }
-.prompt-text p { margin: 0.2rem 0 0; font-size: 0.85rem; color: #718096; line-height: 1.4; }
-.prompt-actions { display: flex; gap: 0.5rem; justify-content: flex-end; }
-.btn-allow {
-  padding: 0.4rem 1rem; background: #4a90d9; color: #fff;
-  border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem;
+
+.prompt-content {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
 }
+
+.prompt-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: var(--primary-light);
+  color: var(--primary);
+
+  border-radius: 50%;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.prompt-text strong {
+  display: block;
+
+  color: var(--text);
+
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.prompt-text p {
+  margin-top: 4px;
+
+  color: var(--text-secondary);
+
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.prompt-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-allow,
 .btn-dismiss {
-  padding: 0.4rem 1rem; background: transparent; color: #718096;
-  border: 1px solid #e2e8f0; border-radius: 6px; cursor: pointer; font-size: 0.85rem;
+  padding: 8px 14px;
+
+  border-radius: var(--radius-sm);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
 }
-/* Animação slide-up */
-.slide-up-enter-active, .slide-up-leave-active { transition: all 0.3s ease; }
-.slide-up-enter-from, .slide-up-leave-to { opacity: 0; transform: translateX(-50%) translateY(1rem); }
+
+.btn-allow {
+  background: var(--primary);
+  color: white;
+
+  border: 1px solid var(--primary);
+}
+
+.btn-allow:hover {
+  background: var(--primary-dark);
+}
+
+.btn-dismiss {
+  background: transparent;
+  color: var(--text-secondary);
+
+  border: 1px solid var(--border);
+}
+
+.btn-dismiss:hover {
+  background: #f8fafc;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  opacity: 0;
+
+  transform:
+    translateX(-50%)
+    translateY(15px);
+}
 </style>

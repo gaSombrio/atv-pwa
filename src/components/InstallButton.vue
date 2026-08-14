@@ -47,19 +47,42 @@ async function installApp() {
 <style scoped>
 .install-button {
   display: block;
+
   width: 100%;
-  padding: 14px;
-  margin-top: 20px;
-  background-color: #27ae60;
+
+  padding: 12px 16px;
+
+  margin-top: 24px;
+  margin-bottom: 30px;
+
+  background: var(--success);
   color: white;
+
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: var(--radius-md);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
   cursor: pointer;
-  transition: background-color 0.2s;
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .install-button:hover {
-  background-color: #219a52;
+  background: var(--success-dark);
+
+  transform: translateY(-1px);
+
+  box-shadow: var(--shadow-md);
+}
+
+.install-button:active {
+  transform: translateY(0);
 }
 </style>

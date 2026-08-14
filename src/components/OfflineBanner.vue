@@ -26,15 +26,24 @@ onUnmounted(() => {
 
 <style scoped>
 .offline-banner {
-  background-color: #e74c3c;
-  color: white;
-  text-align: center;
-  padding: 8px 16px;
-  font-size: 0.85rem;
   position: fixed;
+
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+
+  z-index: 2000;
+
+  padding: 8px 16px;
+
+  background: #b42318;
+  color: white;
+
+  text-align: center;
+
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 </style>

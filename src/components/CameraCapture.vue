@@ -292,17 +292,27 @@ onBeforeUnmount(() => {
 .camera-capture {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+
   width: 100%;
   flex-basis: 100%;
+
+  padding: 12px;
+
+  background: #111827;
+
+  border-radius: var(--radius-md);
 }
 
 .camera-preview {
   width: 100%;
-  max-height: 300px;
+  max-height: 320px;
+
   object-fit: contain;
+
   background: #000;
-  border-radius: 8px;
+
+  border-radius: var(--radius-sm);
 }
 
 .camera-preview.hidden {
@@ -311,10 +321,15 @@ onBeforeUnmount(() => {
 
 .camera-result {
   width: 100%;
-  max-height: 300px;
+  max-height: 320px;
+
   object-fit: contain;
-  border-radius: 8px;
-  border: 2px solid #4a90d9;
+
+  background: #000;
+
+  border-radius: var(--radius-sm);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .camera-actions {
@@ -324,31 +339,43 @@ onBeforeUnmount(() => {
 }
 
 .camera-btn {
-  padding: 8px 16px;
+  padding: 8px 14px;
+
   border: none;
-  border-radius: 6px;
-  font-size: 0.875rem;
+  border-radius: var(--radius-sm);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
   cursor: pointer;
-  background: #4a90d9;
+
+  background: var(--primary);
   color: white;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
 }
 
 .camera-btn:hover {
   opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .camera-btn.secondary {
-  background: #6c757d;
+  background: #64748b;
 }
 
 .camera-btn.danger {
-  background: #e74c3c;
+  background: var(--danger);
 }
 
 .camera-error {
-  color: #e74c3c;
-  font-size: 0.85rem;
   margin: 0;
+
+  color: #fca5a5;
+
+  font-size: 0.82rem;
 }
 </style>
 

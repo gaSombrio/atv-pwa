@@ -23,24 +23,41 @@
 
 <style scoped>
 .about {
+  padding: 22px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
   line-height: 1.6;
 }
 
 .about h2 {
+  margin-bottom: 16px;
+
+  color: var(--primary);
+
   font-size: 1.3rem;
-  color: #4a90d9;
-  margin-bottom: 12px;
+  font-weight: 700;
 }
 
 .about h3 {
-  font-size: 1.1rem;
-  margin-top: 20px;
-  margin-bottom: 8px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .about p {
   margin-bottom: 12px;
-  color: #555;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
 }
 
 .about ul {
@@ -48,7 +65,10 @@
 }
 
 .about li {
-  margin-bottom: 6px;
-  color: #555;
+  margin-bottom: 7px;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
 }
 </style>

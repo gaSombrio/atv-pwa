@@ -38,55 +38,71 @@ function close() {
 <style scoped>
 .update-prompt {
   position: fixed;
-  bottom: 20px;
+
   left: 50%;
+  bottom: 24px;
+
   transform: translateX(-50%);
-  background-color: #333;
+
+  width: min(400px, calc(100vw - 32px));
+
+  padding: 18px;
+
+  background: #1f2937;
   color: white;
-  padding: 16px 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  max-width: 400px;
-  width: calc(100% - 32px);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+
+  z-index: 1500;
 }
 
 .update-prompt p {
-  margin-bottom: 12px;
-  font-size: 0.95rem;
+  margin-bottom: 14px;
+
+  font-size: 0.88rem;
+  line-height: 1.4;
 }
 
 .update-actions {
   display: flex;
-  gap: 8px;
   justify-content: flex-end;
+
+  gap: 8px;
+}
+
+.update-button,
+.dismiss-button {
+  padding: 8px 14px;
+
+  border-radius: var(--radius-sm);
+
+  font-size: 0.82rem;
+  font-weight: 600;
+
+  cursor: pointer;
 }
 
 .update-button {
-  padding: 8px 16px;
-  background-color: #4a90d9;
+  background: var(--primary);
   color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
+
+  border: 1px solid var(--primary);
 }
 
 .update-button:hover {
-  background-color: #357abd;
+  background: var(--primary-dark);
 }
 
 .dismiss-button {
-  padding: 8px 16px;
-  background-color: transparent;
-  color: #ccc;
-  border: 1px solid #666;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
+  background: transparent;
+  color: #d1d5db;
+
+  border: 1px solid #4b5563;
 }
 
 .dismiss-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
 }
 </style>
